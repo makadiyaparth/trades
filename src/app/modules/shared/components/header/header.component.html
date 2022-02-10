@@ -1,1 +1,37 @@
-<p>header works!</p>
+<header class="flex justify-between items-center py-4">
+  <h1 class="text-4xl">Trades</h1>
+  <nav class="flex gap-1">
+    <a
+      class="text-xl px-4 py-1 rounded-md"
+      routerLink="/dashboard"
+      [routerLinkActive]="'bg-gray-500 text-white'"
+      #rla="routerLinkActive"
+      [ngClass]="{ 'hover:bg-gray-200': !rla.isActive }"
+      >Dashboard</a
+    >
+    <a
+      class="text-xl px-4 py-1 rounded-md"
+      routerLink="/stocks"
+      [routerLinkActive]="'bg-gray-500 text-white'"
+      #rla2="routerLinkActive"
+      [ngClass]="{ 'hover:bg-gray-200': !rla2.isActive }"
+      >Stock</a
+    >
+    <a
+      class="text-xl px-4 py-1 rounded-md"
+      routerLink="/futures"
+      [routerLinkActive]="'bg-gray-500 text-white'"
+      #rla3="routerLinkActive"
+      [ngClass]="{ 'hover:bg-gray-200': !rla3.isActive }"
+      >Future</a
+    >
+    <a
+      class="text-xl px-4 py-1 rounded-md"
+      routerLink="/options"
+      [routerLinkActive]="'bg-gray-500 text-white'"
+      #rla4="routerLinkActive"
+      [ngClass]="{ 'hover:bg-gray-200': !rla4.isActive }"
+      >Options</a
+    >
+  </nav>
+</header>
