@@ -3,19 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { OptionsRoutingModule } from './options-routing.module';
 import { OptionsComponent } from './options.component';
-import { OptionsFormComponent } from './options-form/options-form.component';
-import { OptionsTradesComponent } from './options-trades/options-trades.component';
-
+import { OptionsFormComponent } from './components/options-form/options-form.component';
+import { OptionsTradesComponent } from './components/options-trades/options-trades.component';
 
 @NgModule({
   declarations: [
     OptionsComponent,
     OptionsFormComponent,
-    OptionsTradesComponent
+    OptionsTradesComponent,
   ],
-  imports: [
-    CommonModule,
-    OptionsRoutingModule
-  ]
+  imports: [CommonModule, OptionsRoutingModule],
 })
-export class OptionsModule { }
+export class OptionsModule {}
