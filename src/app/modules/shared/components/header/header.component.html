@@ -33,5 +33,13 @@
       [ngClass]="{ 'hover:bg-gray-200': !rla4.isActive }"
       >Options</a
     >
+    <a
+      class="text-xl px-4 py-1 rounded-sm"
+      routerLink="/instruments"
+      [routerLinkActive]="'bg-gray-500 text-white'"
+      #rla5="routerLinkActive"
+      [ngClass]="{ 'hover:bg-gray-200': !rla5.isActive }"
+      >Instruments</a
+    >
   </nav>
 </header>
