@@ -29,6 +29,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/future/future.module').then((m) => m.FutureModule),
   },
+  {
+    path: 'instruments',
+    loadChildren: () =>
+      import('./modules/instrument/instrument.module').then(
+        (m) => m.InstrumentModule
+      ),
+  },
 ];
 
 @NgModule({
