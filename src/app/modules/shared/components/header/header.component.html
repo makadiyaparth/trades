@@ -1,44 +1,44 @@
 <header class="flex justify-between items-center py-4">
-  <h1 class="text-4xl">Trades</h1>
+  <h1 class="text-4xl text-white">Trades</h1>
   <nav class="flex gap-1">
     <a
-      class="text-xl px-4 py-1 rounded-sm"
+      class="text-xl px-4 py-1 rounded-sm text-gray-200"
       routerLink="/dashboard"
-      [routerLinkActive]="'bg-gray-500 text-white'"
+      [routerLinkActive]="'bg-gray-100 text-gray-500'"
       #rla="routerLinkActive"
-      [ngClass]="{ 'hover:bg-gray-200': !rla.isActive }"
+      [ngClass]="{ 'hover:text-gray-100': !rla.isActive }"
       >Dashboard</a
     >
     <a
-      class="text-xl px-4 py-1 rounded-sm"
+      class="text-xl px-4 py-1 rounded-sm text-gray-200"
       routerLink="/stocks"
-      [routerLinkActive]="'bg-gray-500 text-white'"
+      [routerLinkActive]="'bg-gray-100 text-gray-500'"
       #rla2="routerLinkActive"
-      [ngClass]="{ 'hover:bg-gray-200': !rla2.isActive }"
+      [ngClass]="{ 'hover:text-gray-100': !rla2.isActive }"
       >Stock</a
     >
     <a
-      class="text-xl px-4 py-1 rounded-sm"
+      class="text-xl px-4 py-1 rounded-sm text-gray-200"
       routerLink="/futures"
-      [routerLinkActive]="'bg-gray-500 text-white'"
+      [routerLinkActive]="'bg-gray-100 text-gray-500'"
       #rla3="routerLinkActive"
-      [ngClass]="{ 'hover:bg-gray-200': !rla3.isActive }"
+      [ngClass]="{ 'hover:text-gray-100': !rla3.isActive }"
       >Future</a
     >
     <a
-      class="text-xl px-4 py-1 rounded-sm"
+      class="text-xl px-4 py-1 rounded-sm text-gray-200"
       routerLink="/options"
-      [routerLinkActive]="'bg-gray-500 text-white'"
+      [routerLinkActive]="'bg-gray-100 text-gray-500'"
       #rla4="routerLinkActive"
-      [ngClass]="{ 'hover:bg-gray-200': !rla4.isActive }"
+      [ngClass]="{ 'hover:text-gray-100': !rla4.isActive }"
       >Options</a
     >
     <a
-      class="text-xl px-4 py-1 rounded-sm"
+      class="text-xl px-4 py-1 rounded-sm text-gray-200"
       routerLink="/instruments"
-      [routerLinkActive]="'bg-gray-500 text-white'"
+      [routerLinkActive]="'bg-gray-100 text-gray-500'"
       #rla5="routerLinkActive"
-      [ngClass]="{ 'hover:bg-gray-200': !rla5.isActive }"
+      [ngClass]="{ 'hover:text-gray-100': !rla5.isActive }"
       >Instruments</a
     >
   </nav>
