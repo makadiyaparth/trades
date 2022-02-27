@@ -7,7 +7,7 @@ import { InstrumentInDTO } from '../dto/insturment-in-dto';
 
 @Injectable()
 export class InstrumentService {
-  private basePath = '/instruments';
+  private basePath = 'instruments';
 
   constructor(private apiService: ApiService) { }
 
