@@ -3,12 +3,11 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
-const exports = [HeaderComponent];
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [...exports],
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
-  exports: [...exports],
+  declarations: [HeaderComponent],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, HttpClientModule],
+  exports: [HeaderComponent, ReactiveFormsModule, RouterModule, HttpClientModule],
 })
 export class SharedModule {}
