@@ -1,12 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { InstrumentDTO } from './dto/instrument-dto';
 
 @Component({
   selector: 'app-instrument',
   templateUrl: './instrument.component.html',
   styleUrls: ['./instrument.component.scss'],
 })
-export class InstrumentComponent implements OnInit {
-  constructor() {}
+export class InstrumentComponent {
+  refreshList$ = new BehaviorSubject<boolean>(true);
+  instrumentDTO: InstrumentDTO = { id: 0, name: '', description: '' };
 
-  ngOnInit(): void {}
+  edit(instrumentDTO: InstrumentDTO): void {
+    this.instrumentDTO = instrumentDTO;
+  }
+
+  refreshList(): void {
+    this.refreshList$.next(true);
+  }
 }

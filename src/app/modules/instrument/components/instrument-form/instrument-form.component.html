@@ -1,34 +1,44 @@
-<h3 class="text-2xl">Add Instrument</h3>
-<form class="flex flex-col gap-4 mt-4">
+<h3 class="text-2xl text-gray-600">Add Instrument</h3>
+<form class="flex flex-col gap-4 mt-4" [formGroup]="formGroup">
   <div class="flex flex-col">
     <label for="instrument">Instrument Name</label>
     <input
       id="instrument-name"
       type="text"
       name="instrument-name"
+      formControlName="name"
       placeholder="Enter Instrument Name"
       autofocus
       required
     />
   </div>
   <div class="flex flex-col">
-    <label for="strike-price">Symbol</label>
-    <input id="symbol" type="text" name="symbol" placeholder="Enter Symbol" />
-  </div>
-  <div class="flex flex-col">
     <label for="description">Description</label>
     <textarea
       id="description"
       name="description"
+      formControlName="description"
       placeholder="Enter Description"
     ></textarea>
   </div>
   <div class="flex gap-4 mb-4">
     <button
+      *ngIf="!editMode"
       type="button"
-      class="px-8 py-2 bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded-sm tracking-wide"
+      (click)="save()"
+      [disabled]="formGroup.invalid"
+      class="px-8 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-sm tracking-wide"
     >
       Save
+    </button>
+    <button
+      *ngIf="editMode"
+      type="button"
+      (click)="update()"
+      [disabled]="formGroup.invalid"
+      class="px-8 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-sm tracking-wide"
+    >
+      Update
     </button>
   </div>
 </form>
