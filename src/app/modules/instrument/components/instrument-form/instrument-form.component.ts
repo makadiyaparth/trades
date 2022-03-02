@@ -38,6 +38,11 @@ export class InstrumentFormComponent implements OnChanges {
     this._service.update(this.compileDTO()).pipe(first()).subscribe(_ => this.onSuccess());
   }
 
+  cancel(): void {
+    this.formGroup.reset();
+    this.editMode = false;
+  }
+
   private onSuccess(): void {
     this.onChange.emit();
     this.formGroup.reset();

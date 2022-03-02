@@ -27,7 +27,7 @@
       type="button"
       (click)="save()"
       [disabled]="formGroup.invalid"
-      class="px-8 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-sm tracking-wide"
+      class="px-6 py-2 bg-blue-500 cursor-pointer hover:bg-blue-700 text-white rounded-sm tracking-wide"
     >
       Save
     </button>
@@ -36,9 +36,16 @@
       type="button"
       (click)="update()"
       [disabled]="formGroup.invalid"
-      class="px-8 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-sm tracking-wide"
+      class="px-6 py-2 bg-blue-500 cursor-pointer hover:bg-blue-700 text-white rounded-sm tracking-wide"
     >
       Update
+    </button>
+    <button
+      type="button"
+      (click)="cancel()"
+      class="px-6 py-2 text-gray-600 ring-1 ring-gray-600 cursor-pointer hover:bg-gray-200 rounded-sm tracking-wide"
+    >
+      Cancel
     </button>
   </div>
 </form>
