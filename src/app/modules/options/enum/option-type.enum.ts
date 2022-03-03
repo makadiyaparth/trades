@@ -1,3 +1,3 @@
 export enum OptionsType {
-  CALL, PUT
+  CALL = 'CALL', PUT = 'PUT'
 }
