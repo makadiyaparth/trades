@@ -5,7 +5,7 @@ export interface OptionsDTO {
   id: number;
   instrumentName: string;
   strikePrice: number;
-  optionType: OptionsType;
+  optionsType: OptionsType;
   transactionType: TransactionType;
   expiryDate: string;
   price: number;

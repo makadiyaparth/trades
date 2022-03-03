@@ -4,7 +4,7 @@ import { OptionsType } from "../enum/option-type.enum";
 export interface OptionsInDTO {
   instrumentName: string;
   strikePrice: number;
-  optionType: OptionsType;
+  optionsType: OptionsType;
   transactionType: TransactionType;
   expiryDate: string;
   price: number;
