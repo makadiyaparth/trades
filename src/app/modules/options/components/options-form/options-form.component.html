@@ -1,5 +1,5 @@
 <h3 class="text-2xl">Add Trade</h3>
-<form class="flex flex-col gap-4 mt-4">
+<form class="flex flex-col gap-4 mt-4" [formGroup]="formGroup">
   <div class="flex flex-col">
     <label for="instrument">Instrument</label>
     <input
@@ -7,6 +7,7 @@
       type="text"
       name="instrument"
       placeholder="Enter Instrument"
+      formControlName="instrumentName"
       list="instrument_list"
       required
     />
@@ -18,16 +19,29 @@
       type="number"
       name="strike-price"
       placeholder="Enter Strike Price"
+      formControlName="strikePrice"
       required
     />
   </div>
   <div class="flex gap-12">
     <div class="flex gap-2 items-center">
-      <input type="radio" name="option-type" id="call" />
+      <input
+        type="radio"
+        name="optionsType"
+        formControlName="optionsType"
+        value="CALL"
+        id="call"
+      />
       <label for="call">Call</label>
     </div>
     <div class="flex gap-2 items-center">
-      <input type="radio" name="option-type" id="put" />
+      <input
+        type="radio"
+        name="optionsType"
+        formControlName="optionsType"
+        value="PUT"
+        id="put"
+      />
       <label for="put">Put</label>
     </div>
   </div>
@@ -38,6 +52,7 @@
       type="date"
       name="expiry-date"
       placeholder="Enter Expiry Date"
+      formControlName="expiryDate"
       required
     />
   </div>
@@ -48,6 +63,7 @@
       type="number"
       name="price"
       placeholder="Enter Price"
+      formControlName="price"
       required
     />
   </div>
@@ -58,25 +74,40 @@
       type="number"
       name="lots"
       placeholder="Enter Lot/s"
+      formControlName="lots"
       required
     />
   </div>
   <div class="flex flex-col">
     <label for="note">Note (optional)</label>
-    <textarea id="note" name="note" placeholder="Enter Note"></textarea>
+    <textarea
+      id="note"
+      name="note"
+      placeholder="Enter Note"
+      formControlName="note"
+    ></textarea>
   </div>
   <div class="flex gap-4 mb-4">
     <button
       type="button"
-      class="px-8 py-2 bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded-sm tracking-wide"
+      class="px-6 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-sm tracking-wide"
+      (click)="save(TransactionType.BUY)"
     >
       Buy
     </button>
     <button
       type="button"
-      class="px-8 py-2 bg-red-500 hover:bg-red-700 text-white font-semibold rounded-sm tracking-wide"
+      class="px-6 py-2 bg-red-500 hover:bg-red-700 text-white rounded-sm tracking-wide"
+      (click)="save(TransactionType.SELL)"
     >
       Sell
+    </button>
+    <button
+      type="button"
+      class="px-6 py-2 ring-1 ring-gray-600 hover:bg-gray-200 rounded-sm tracking-wide"
+      (click)="reset()"
+    >
+      Reset
     </button>
   </div>
 </form>
