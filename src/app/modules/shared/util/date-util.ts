@@ -10,3 +10,7 @@ export function getDateAndMonth(dateStr: string): string {
   let month = monthList[date.getMonth()];
   return `${date.getDate()} ${month}`;
 }
+
+export function toDateStr(dateArr: string[] | string): string {
+  return `${dateArr[0]}-${('0' + dateArr[1]).slice(-2)}-${('0' + dateArr[2]).slice(-2)}`;
+}
