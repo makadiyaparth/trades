@@ -31,6 +31,25 @@ export class OptionsTradesComponent implements OnInit {
     this.onEdit.emit(optionsDTO);
   }
 
+  newLike(key: string): void {
+    const optionsDTOs = this.optionsMap.get(key);
+
+    if (optionsDTOs && optionsDTOs.length > 0) {
+      const optionsDTO = optionsDTOs[0];
+
+      const newOptionsDTO = {
+        id: 0,
+        instrumentDTO: optionsDTO.instrumentDTO,
+        strikePrice: optionsDTO.strikePrice,
+        optionsType: optionsDTO.optionsType,
+        expiryDate: optionsDTO.expiryDate,
+        lots: 1
+      } as OptionsDTO;
+
+      this.onEdit.emit(newOptionsDTO);
+    }
+  }
+
   refreshList(): void {
     this.refreshList$.next(true);
   }
