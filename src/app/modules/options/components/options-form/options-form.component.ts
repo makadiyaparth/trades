@@ -83,10 +83,10 @@ export class OptionsFormComponent implements OnInit, OnChanges {
   }
 
   private patchForm(optionsDTO: OptionsDTO): void {
+    this.formGroup.reset();
     this.formGroup.patchValue({
       ...optionsDTO,
-      instrumentName: optionsDTO?.instrumentDTO?.name,
-      expiryDate: optionsDTO?.expiryDate
+      instrumentName: optionsDTO?.instrumentDTO?.name
     });
   }
 
