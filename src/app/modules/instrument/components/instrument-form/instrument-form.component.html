@@ -21,7 +21,7 @@
       placeholder="Enter Description"
     ></textarea>
   </div>
-  <div class="flex gap-4 mb-4">
+  <div class="flex justify-between gap-4 mb-4">
     <button
       *ngIf="!editMode"
       type="button"
@@ -42,10 +42,10 @@
     </button>
     <button
       type="button"
-      (click)="cancel()"
+      (click)="reset()"
       class="px-6 py-2 text-gray-600 ring-1 ring-gray-600 cursor-pointer hover:bg-gray-200 rounded-sm tracking-wide"
     >
-      Cancel
+      Reset
     </button>
   </div>
 </form>
