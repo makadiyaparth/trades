@@ -4,7 +4,7 @@ import { first } from 'rxjs';
 import { InstrumentDTO } from 'src/app/modules/instrument/dto/instrument-dto';
 import { InstrumentService } from 'src/app/modules/instrument/service/instrument.service';
 import { TransactionType } from 'src/app/modules/shared/enum/transaction-type.enum';
-import { getNextThursday, toDateStr } from 'src/app/modules/shared/util/date-util';
+import { getNextThursday } from 'src/app/modules/shared/util/date-util';
 import { OptionsDTO } from '../../dto/options-dto';
 import { OptionsInDTO } from '../../dto/options-in-dto';
 import { OptionsType } from '../../enum/option-type.enum';
@@ -86,7 +86,7 @@ export class OptionsFormComponent implements OnInit, OnChanges {
     this.formGroup.patchValue({
       ...optionsDTO,
       instrumentName: optionsDTO?.instrumentDTO?.name,
-      expiryDate: toDateStr(optionsDTO?.expiryDate)
+      expiryDate: optionsDTO?.expiryDate
     });
   }
 
