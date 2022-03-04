@@ -87,21 +87,32 @@
       formControlName="note"
     ></textarea>
   </div>
-  <div class="flex gap-4 mb-4">
+  <div class="flex mb-4 justify-between">
+    <div class="flex gap-4" *ngIf="!editMode">
+      <button
+        type="button"
+        class="px-6 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-sm tracking-wide"
+        (click)="save(TransactionType.BUY)"
+      >
+        Buy
+      </button>
+      <button
+        type="button"
+        class="px-6 py-2 bg-red-500 hover:bg-red-700 text-white rounded-sm tracking-wide"
+        (click)="save(TransactionType.SELL)"
+      >
+        Sell
+      </button>
+    </div>
     <button
       type="button"
+      *ngIf="editMode"
       class="px-6 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-sm tracking-wide"
-      (click)="save(TransactionType.BUY)"
+      (click)="update()"
     >
-      Buy
+      Update
     </button>
-    <button
-      type="button"
-      class="px-6 py-2 bg-red-500 hover:bg-red-700 text-white rounded-sm tracking-wide"
-      (click)="save(TransactionType.SELL)"
-    >
-      Sell
-    </button>
+
     <button
       type="button"
       class="px-6 py-2 ring-1 ring-gray-600 hover:bg-gray-200 rounded-sm tracking-wide"
