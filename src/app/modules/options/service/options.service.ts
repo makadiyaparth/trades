@@ -15,8 +15,10 @@ export class OptionsService {
     return this.apiService.post(this.basePath, optionsInDTO);
   }
 
-  findAll(): Observable<OptionsDTO[]> {
-    return this.apiService.get(this.basePath);
+  findAll(date: string): Observable<OptionsDTO[]> {
+    let httpParams = new HttpParams();
+    httpParams = httpParams.set('date', date);
+    return this.apiService.get(this.basePath, httpParams);
   }
 
   update(id: number, optionsInDTO: OptionsInDTO): Observable<OptionsDTO> {
