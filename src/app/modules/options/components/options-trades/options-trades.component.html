@@ -1,12 +1,15 @@
 <div class="flex justify-between">
   <h2 class="text-2xl">Options Trades</h2>
-  <input
-    type="date"
-    name="date"
-    id="date"
-    [(ngModel)]="date"
-    (ngModelChange)="refreshList()"
-  />
+  <div>
+    <label for="date" class="mr-2 text-xl">Date</label>
+    <input
+      type="date"
+      name="date"
+      id="date"
+      [(ngModel)]="date"
+      (ngModelChange)="refreshList()"
+    />
+  </div>
 </div>
 <div class="columns-3 gap-4 space-y-4 mt-4">
   <div
