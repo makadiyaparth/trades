@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { BehaviorSubject, Observable, switchMap } from 'rxjs';
-import { getDateAndMonth } from 'src/app/modules/shared/util/date-util';
+import { BehaviorSubject, filter, Observable, switchMap } from 'rxjs';
+import { getDateAndMonth, getToday } from 'src/app/modules/shared/util/date-util';
 import { OptionsDTO } from '../../dto/options-dto';
 import { OptionsType } from '../../enum/option-type.enum';
 import { OptionsService } from '../../service/options.service';
@@ -18,10 +18,12 @@ export class OptionsTradesComponent implements OnInit {
   optionsDTOs: OptionsDTO[] = [];
   optionsMap: Map<string, OptionsDTO[]> = new Map();
 
+  date: string = getToday();
+
   constructor(private _service: OptionsService) { }
 
   ngOnInit(): void {
-    this.refreshList$.pipe(switchMap(_ => this._service.findAll())).subscribe(dtos => {
+    this.refreshList$.pipe(filter(_ => !!this.date), switchMap(_ => this._service.findAll(this.date))).subscribe(dtos => {
       this.optionsDTOs = dtos;
       this.populateMap();
     });
