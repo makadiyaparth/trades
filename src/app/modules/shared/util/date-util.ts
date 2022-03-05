@@ -4,6 +4,11 @@ export function getNextThursday(): string {
   return today.toISOString().split('T')[0];
 }
 
+export function getToday(): string {
+  var today = new Date();
+  return today.toISOString().split('T')[0];
+}
+
 export function getDateAndMonth(dateStr: string): string {
   const date = new Date(dateStr);
   const monthList = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
