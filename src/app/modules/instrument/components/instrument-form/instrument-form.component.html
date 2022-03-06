@@ -27,7 +27,7 @@
       type="button"
       (click)="save()"
       [disabled]="formGroup.invalid"
-      class="px-6 py-2 bg-blue-500 cursor-pointer hover:bg-blue-700 text-white rounded-sm tracking-wide"
+      class="px-6 py-2 bg-blue-500 cursor-pointer hover:bg-blue-700 disabled:opacity-50 text-white rounded-sm tracking-wide"
     >
       Save
     </button>
@@ -36,7 +36,7 @@
       type="button"
       (click)="update()"
       [disabled]="formGroup.invalid"
-      class="px-6 py-2 bg-blue-500 cursor-pointer hover:bg-blue-700 text-white rounded-sm tracking-wide"
+      class="px-6 py-2 bg-blue-500 cursor-pointer hover:bg-blue-700 disabled:opacity-50 text-white rounded-sm tracking-wide"
     >
       Update
     </button>
