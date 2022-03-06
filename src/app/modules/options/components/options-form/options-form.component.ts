@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs';
+import { BehaviorSubject, first } from 'rxjs';
 import { InstrumentDTO } from 'src/app/modules/instrument/dto/instrument-dto';
 import { InstrumentService } from 'src/app/modules/instrument/service/instrument.service';
 import { TransactionType } from 'src/app/modules/shared/enum/transaction-type.enum';
@@ -19,6 +19,7 @@ export class OptionsFormComponent implements OnInit, OnChanges {
   @Output() onChange: EventEmitter<void> = new EventEmitter();
 
   editMode = false;
+  focusPrice$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   TransactionType = TransactionType;
   instrumentDTOs: InstrumentDTO[] = [];
 
@@ -65,6 +66,7 @@ export class OptionsFormComponent implements OnInit, OnChanges {
   private onSuccess(): void {
     this.onChange.emit();
     this.formGroup.get('price')?.reset();
+    this.focusPrice$.next(true);
     this.editMode = false;
   }
 
