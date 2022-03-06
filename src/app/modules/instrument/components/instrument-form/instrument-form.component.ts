@@ -9,7 +9,6 @@ import { InstrumentService } from '../../service/instrument.service';
 @Component({
   selector: 'app-instrument-form',
   templateUrl: './instrument-form.component.html',
-  styleUrls: ['./instrument-form.component.scss']
 })
 export class InstrumentFormComponent implements OnChanges {
   @Input() instrumentDTO: InstrumentDTO = { id: 0, name: '', description: '' };

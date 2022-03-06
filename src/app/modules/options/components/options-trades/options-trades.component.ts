@@ -8,7 +8,6 @@ import { OptionsService } from '../../service/options.service';
 @Component({
   selector: 'app-options-trades',
   templateUrl: './options-trades.component.html',
-  styleUrls: ['./options-trades.component.scss']
 })
 export class OptionsTradesComponent implements OnInit {
   @Input() refreshList$ = new BehaviorSubject<boolean>(true);

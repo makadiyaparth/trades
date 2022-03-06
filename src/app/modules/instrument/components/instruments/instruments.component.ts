@@ -6,7 +6,6 @@ import { InstrumentService } from '../../service/instrument.service';
 @Component({
   selector: 'app-instruments',
   templateUrl: './instruments.component.html',
-  styleUrls: ['./instruments.component.scss']
 })
 export class InstrumentsComponent implements OnInit {
   @Input() refreshList$ = new BehaviorSubject<boolean>(true);
