@@ -5,10 +5,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FocusDirective } from './directive/focus.directive';
+import { NoRecordFoundComponent } from './components/no-record-found/no-record-found.component';
 
 @NgModule({
-  declarations: [HeaderComponent, FocusDirective],
+  declarations: [HeaderComponent, FocusDirective, NoRecordFoundComponent],
   imports: [CommonModule, ReactiveFormsModule, FormsModule, RouterModule, HttpClientModule],
-  exports: [HeaderComponent, FocusDirective, ReactiveFormsModule, FormsModule, RouterModule, HttpClientModule],
+  exports: [HeaderComponent, FocusDirective, NoRecordFoundComponent, ReactiveFormsModule, FormsModule, RouterModule, HttpClientModule],
 })
 export class SharedModule { }
