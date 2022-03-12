@@ -5,47 +5,37 @@
       src="assets/logo.jpg"
       alt="Trades Logo"
     />
-    <h1 class="text-4xl text-white">Trades</h1>
+    <h1 class="text-4xl text-gray-700">Trades</h1>
   </div>
-  <nav class="flex gap-1">
+  <nav class="flex gap-8 text-xl text-gray-700">
     <a
-      class="text-xl px-4 py-1 rounded-sm text-gray-200"
+      class="rounded-sm"
       routerLink="/dashboard"
-      [routerLinkActive]="'bg-gray-100 text-gray-500'"
-      #rla="routerLinkActive"
-      [ngClass]="{ 'hover:text-gray-100': !rla.isActive }"
+      [routerLinkActive]="'underline underline-offset-8'"
       >Dashboard</a
     >
     <a
-      class="text-xl px-4 py-1 rounded-sm text-gray-200"
+      class="rounded-sm"
       routerLink="/stocks"
-      [routerLinkActive]="'bg-gray-100 text-gray-500'"
-      #rla2="routerLinkActive"
-      [ngClass]="{ 'hover:text-gray-100': !rla2.isActive }"
+      [routerLinkActive]="'underline underline-offset-8'"
       >Stock</a
     >
     <a
-      class="text-xl px-4 py-1 rounded-sm text-gray-200"
+      class="rounded-sm"
       routerLink="/futures"
-      [routerLinkActive]="'bg-gray-100 text-gray-500'"
-      #rla3="routerLinkActive"
-      [ngClass]="{ 'hover:text-gray-100': !rla3.isActive }"
+      [routerLinkActive]="'underline underline-offset-8'"
       >Future</a
     >
     <a
-      class="text-xl px-4 py-1 rounded-sm text-gray-200"
+      class="rounded-sm"
       routerLink="/options"
-      [routerLinkActive]="'bg-gray-100 text-gray-500'"
-      #rla4="routerLinkActive"
-      [ngClass]="{ 'hover:text-gray-100': !rla4.isActive }"
+      [routerLinkActive]="'underline underline-offset-8'"
       >Options</a
     >
     <a
-      class="text-xl px-4 py-1 rounded-sm text-gray-200"
+      class="rounded-sm"
       routerLink="/instruments"
-      [routerLinkActive]="'bg-gray-100 text-gray-500'"
-      #rla5="routerLinkActive"
-      [ngClass]="{ 'hover:text-gray-100': !rla5.isActive }"
+      [routerLinkActive]="'underline underline-offset-8'"
       >Instruments</a
     >
   </nav>
