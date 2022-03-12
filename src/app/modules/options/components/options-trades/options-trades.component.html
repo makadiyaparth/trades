@@ -12,7 +12,10 @@
     />
   </div>
 </div>
-<div class="columns-3 gap-4 space-y-4 mt-4">
+<div
+  class="columns-3 gap-4 space-y-4 mt-4"
+  *ngIf="optionsDTOs && optionsDTOs.length > 0; else NRF"
+>
   <div
     class="shadow-md rounded-lg p-4 break-inside-avoid"
     *ngFor="let entry of optionsMap | keyvalue"
@@ -41,3 +44,6 @@
     </div>
   </div>
 </div>
+<ng-template #NRF>
+  <app-no-record-found></app-no-record-found>
+</ng-template>
