@@ -1,61 +1,103 @@
 <h3 class="text-2xl">Add Trade</h3>
-<form class="flex flex-col gap-4 mt-4">
+<form class="flex flex-col gap-4 mt-4" [formGroup]="formGroup">
   <div class="flex flex-col">
     <label for="instrument">Instrument</label>
     <input
       id="instrument"
       type="text"
       name="instrument"
+      formControlName="instrumentName"
       placeholder="Enter Instrument"
+      list="instrument_list"
       required
     />
   </div>
   <div class="flex flex-col">
-    <label for="strike-price">Price</label>
+    <label for="price">Price</label>
     <input
-      id="strike-price"
+      id="price"
       type="number"
       name="price"
+      formControlName="price"
       placeholder="Enter Price"
       required
     />
   </div>
   <div class="flex flex-col">
-    <label for="strike-price">Quantity</label>
+    <label for="price">Quantity</label>
     <input
       id="quantity"
       type="number"
       name="quantity"
+      formControlName="quantity"
       placeholder="Enter Quantity"
       required
     />
   </div>
   <div class="flex flex-col">
-    <label for="expiry-date">Transaction Date</label>
+    <label for="transaction-date">Transaction Date</label>
     <input
-      id="expiry-date"
+      id="transaction-date"
       type="date"
-      name="expiry-date"
+      name="transaction-date"
+      formControlName="transactionDate"
+      [max]="today"
       placeholder="Enter Expiry Date"
       required
     />
   </div>
   <div class="flex flex-col">
     <label for="note">Note (optional)</label>
-    <textarea id="note" name="note" placeholder="Enter Note"></textarea>
+    <textarea
+      id="note"
+      name="note"
+      formControlName="note"
+      placeholder="Enter Note"
+    ></textarea>
   </div>
-  <div class="flex gap-4 mb-4">
+  <div class="flex mb-4 justify-between">
+    <div class="flex gap-4" *ngIf="!editMode">
+      <button
+        type="button"
+        [disabled]="formGroup.invalid"
+        class="px-8 py-2 bg-blue-500 hover:bg-blue-700 disabled:opacity-50 text-white rounded-sm tracking-wide"
+        (click)="save(TransactionType.BUY)"
+      >
+        Buy
+      </button>
+      <button
+        type="button"
+        [disabled]="formGroup.invalid"
+        class="px-8 py-2 bg-red-500 hover:bg-red-700 disabled:opacity-50 text-white rounded-sm tracking-wide"
+        (click)="save(TransactionType.SELL)"
+      >
+        Sell
+      </button>
+    </div>
     <button
       type="button"
-      class="px-8 py-2 bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded-sm tracking-wide"
+      *ngIf="editMode"
+      [disabled]="formGroup.invalid"
+      class="px-6 py-2 bg-blue-500 hover:bg-blue-700 disabled:opacity-50 text-white rounded-sm tracking-wide"
+      (click)="update()"
     >
-      Buy
+      Update
     </button>
+
     <button
       type="button"
-      class="px-8 py-2 bg-red-500 hover:bg-red-700 text-white font-semibold rounded-sm tracking-wide"
+      class="px-6 py-2 ring-1 ring-gray-600 hover:bg-gray-200 rounded-sm tracking-wide"
+      (click)="reset()"
     >
-      Sell
+      Reset
     </button>
   </div>
 </form>
+
+<ng-container *ngIf="instrumentDTOs.length > 0">
+  <datalist id="instrument_list">
+    <option *ngFor="let instrumentDTO of instrumentDTOs">
+      {{ instrumentDTO.name }}
+    </option>
+  </datalist>
+</ng-container>
