@@ -1,0 +1,137 @@
+<h3 class="text-2xl">Add Trade</h3>
+<form class="flex flex-col gap-4 mt-4" [formGroup]="formGroup">
+  <div class="flex flex-col">
+    <label for="instrument">Instrument</label>
+    <input
+      id="instrument"
+      type="text"
+      name="instrument"
+      placeholder="Enter Instrument"
+      formControlName="instrumentName"
+      list="instrument_list"
+      required
+    />
+  </div>
+  <div class="flex flex-col">
+    <label for="strike-price">Strike Price</label>
+    <input
+      id="strike-price"
+      type="number"
+      name="strike-price"
+      placeholder="Enter Strike Price"
+      formControlName="strikePrice"
+      required
+    />
+  </div>
+  <div class="flex gap-12">
+    <div class="flex gap-2 items-center">
+      <input
+        type="radio"
+        name="optionsType"
+        formControlName="optionsType"
+        value="CALL"
+        id="call"
+      />
+      <label for="call">Call</label>
+    </div>
+    <div class="flex gap-2 items-center">
+      <input
+        type="radio"
+        name="optionsType"
+        formControlName="optionsType"
+        value="PUT"
+        id="put"
+      />
+      <label for="put">Put</label>
+    </div>
+  </div>
+  <div class="flex flex-col">
+    <label for="expiry-date">Expiry Date</label>
+    <input
+      id="expiry-date"
+      type="date"
+      name="expiry-date"
+      placeholder="Enter Expiry Date"
+      formControlName="expiryDate"
+      required
+    />
+  </div>
+  <div class="flex flex-col">
+    <label for="price">Price</label>
+    <input
+      id="price"
+      type="number"
+      name="price"
+      placeholder="Enter Price"
+      formControlName="price"
+      focus
+      [focus$]="focusPrice$"
+      required
+    />
+  </div>
+  <div class="flex flex-col">
+    <label for="lots">Lot/s</label>
+    <input
+      id="lots"
+      type="number"
+      name="lots"
+      placeholder="Enter Lot/s"
+      formControlName="lots"
+      required
+    />
+  </div>
+  <div class="flex flex-col">
+    <label for="note">Note (optional)</label>
+    <textarea
+      id="note"
+      name="note"
+      placeholder="Enter Note"
+      formControlName="note"
+    ></textarea>
+  </div>
+  <div class="flex mb-4 justify-between">
+    <div class="flex gap-4" *ngIf="!editMode">
+      <button
+        type="button"
+        [disabled]="formGroup.invalid"
+        class="px-6 py-2 bg-blue-500 hover:bg-blue-700 disabled:opacity-50 text-white rounded-sm tracking-wide"
+        (click)="save(TransactionType.BUY)"
+      >
+        Buy
+      </button>
+      <button
+        type="button"
+        [disabled]="formGroup.invalid"
+        class="px-6 py-2 bg-red-500 hover:bg-red-700 disabled:opacity-50 text-white rounded-sm tracking-wide"
+        (click)="save(TransactionType.SELL)"
+      >
+        Sell
+      </button>
+    </div>
+    <button
+      type="button"
+      *ngIf="editMode"
+      [disabled]="formGroup.invalid"
+      class="px-6 py-2 bg-blue-500 hover:bg-blue-700 disabled:opacity-50 text-white rounded-sm tracking-wide"
+      (click)="update()"
+    >
+      Update
+    </button>
+
+    <button
+      type="button"
+      class="px-6 py-2 ring-1 ring-gray-600 hover:bg-gray-200 rounded-sm tracking-wide"
+      (click)="reset()"
+    >
+      Reset
+    </button>
+  </div>
+</form>
+
+<ng-container *ngIf="instrumentDTOs.length > 0">
+  <datalist id="instrument_list">
+    <option *ngFor="let instrumentDTO of instrumentDTOs">
+      {{ instrumentDTO.name }}
+    </option>
+  </datalist>
+</ng-container>

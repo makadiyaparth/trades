@@ -1,0 +1,35 @@
+<h2 class="text-2xl text-gray-600">Instruments</h2>
+<ng-container *ngIf="instrumentDTOs$ | async as instrumentDTOs">
+  <div *ngIf="instrumentDTOs.length > 0; else NRF">
+    <div class="mt-4 px-4 py-1 bg-gray-100 flex gap-4">
+      <span class="w-2/6 text-xl font-semibold text-gray-600">Name</span>
+      <span class="w-3/6 text-xl font-semibold text-gray-600">Description</span>
+      <span class="w-1/6 text-xl font-semibold text-gray-600 text-center"
+        >Actions</span
+      >
+    </div>
+    <div
+      class="px-4 py-1 flex gap-4"
+      *ngFor="let instrumentDTO of instrumentDTOs"
+    >
+      <span class="w-2/6 text-xl text-gray-600">{{ instrumentDTO.name }}</span>
+      <span class="w-3/6 text-xl text-gray-600">{{
+        instrumentDTO.description
+      }}</span>
+      <span class="w-1/6 text-gray-600 text-center">
+        <span class="text-blue-500 cursor-pointer" (click)="edit(instrumentDTO)"
+          >edit</span
+        >
+        |
+        <span
+          class="text-red-500 cursor-pointer"
+          (click)="delete(instrumentDTO.id)"
+          >delete</span
+        >
+      </span>
+    </div>
+  </div>
+</ng-container>
+<ng-template #NRF>
+  <app-no-record-found></app-no-record-found>
+</ng-template>

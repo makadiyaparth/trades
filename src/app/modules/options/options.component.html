@@ -1,0 +1,12 @@
+<div class="flex gap-8">
+  <app-options-trades
+    class="w-3/4"
+    [refreshList$]="refreshList$"
+    (onEdit)="edit($event)"
+  ></app-options-trades>
+  <app-options-form
+    class="w-1/4"
+    [optionsDTO]="optionsDTO"
+    (onChange)="refreshList()"
+  ></app-options-form>
+</div>

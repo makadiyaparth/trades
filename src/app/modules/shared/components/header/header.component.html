@@ -1,0 +1,42 @@
+<header class="flex justify-between items-center py-4">
+  <div class="flex items-center">
+    <img
+      class="w-12 h-12 mr-4 rounded-lg"
+      src="assets/logo.jpg"
+      alt="Trades Logo"
+    />
+    <h1 class="text-4xl text-gray-700 cursor-pointer" routerLink="/">Trades</h1>
+  </div>
+  <nav class="flex gap-8 text-xl text-gray-700">
+    <a
+      class="rounded-sm"
+      routerLink="/dashboard"
+      [routerLinkActive]="'underline underline-offset-8'"
+      >Dashboard</a
+    >
+    <a
+      class="rounded-sm"
+      routerLink="/stocks"
+      [routerLinkActive]="'underline underline-offset-8'"
+      >Stock</a
+    >
+    <a
+      class="rounded-sm"
+      routerLink="/futures"
+      [routerLinkActive]="'underline underline-offset-8'"
+      >Future</a
+    >
+    <a
+      class="rounded-sm"
+      routerLink="/options"
+      [routerLinkActive]="'underline underline-offset-8'"
+      >Options</a
+    >
+    <a
+      class="rounded-sm"
+      routerLink="/instruments"
+      [routerLinkActive]="'underline underline-offset-8'"
+      >Instruments</a
+    >
+  </nav>
+</header>

@@ -1,0 +1,12 @@
+<div class="flex gap-8">
+  <app-instruments
+    class="w-3/4"
+    [refreshList$]="refreshList$"
+    (onEdit)="edit($event)"
+  ></app-instruments>
+  <app-instrument-form
+    class="w-1/4"
+    [instrumentDTO]="instrumentDTO"
+    (onChange)="refreshList()"
+  ></app-instrument-form>
+</div>
